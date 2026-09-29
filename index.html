@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MOTOAURA | Two-Wheeler Service Centre</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --black:#050505;
+    --black2:#0b0b0b;
+    --gold:#d8a82f;
+    --gold2:#ffd45c;
+    --text:#f5f5f5;
+    --muted:#888;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--black);
+    color:var(--text);
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:75px;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(5,5,5,.96);
+    border-bottom:1px solid rgba(216,168,47,.18);
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+}
+
+.logo-icon{
+    width:38px;
+    height:38px;
+    border:2px solid var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold2);
+    font-weight:bold;
+}
+
+.logo-name{
+    font-size:18px;
+    letter-spacing:3px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.nav-links a:hover{
+    color:var(--gold2);
+}
+
+.login-nav{
+    border:1px solid var(--gold);
+    padding:10px 18px;
+}
+
+/* ================= HOME ================= */
+
+#homePage{
+    display:block;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    padding:100px 20px 50px;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    border-radius:50%;
+    border:1px solid rgba(216,168,47,.06);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:1000px;
+}
+
+.hero-small{
+    color:var(--gold2);
+    font-size:13px;
+    letter-spacing:4px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,105px);
+    letter-spacing:5px;
+    line-height:1;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    color:var(--gold2);
+}
+
+.hero-subtitle{
+    font-size:17px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.hero-tagline{
+    color:#aaa;
+    font-size:15px;
+    letter-spacing:1px;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    border:1px solid var(--gold);
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-gold{
+    background:var(--gold);
+    color:#000;
+}
+
+.btn-gold:hover{
+    background:var(--gold2);
+}
+
+.btn-outline{
+    color:var(--gold2);
+    background:transparent;
+}
+
+.btn-outline:hover{
+    background:var(--gold);
+    color:#000;
+}
+
+/* ================= BRANDS ================= */
+
+.brands{
+    min-height:420px;
+    padding:70px 8%;
+    background:#070707;
+    border-top:1px solid #111;
+    border-bottom:1px solid #111;
+    text-align:center;
+}
+
+.brand-title{
+    color:var(--gold2);
+    letter-spacing:4px;
+    font-size:12px;
+    margin-bottom:35px;
+}
+
+.brand-grid{
+    max-width:850px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.brand-box{
+    min-height:85px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#0d0d0d;
+    border:1px solid #161616;
+    color:white;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+/* ================= HOME EXPLORE 2 ================= */
+
+.home-explore{
+    min-height:430px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:70px 20px;
+    background:
+    radial-gradient(circle at center,rgba(216,168,47,.08),transparent 42%),
+    #080808;
+    border-top:1px solid #161616;
+}
+
+.home-explore-content{
+    max-width:750px;
+}
+
+.home-explore h2{
+    font-size:45px;
+    letter-spacing:2px;
+    margin:15px 0;
+}
+
+.home-explore h2 span{
+    color:var(--gold2);
+}
+
+.home-explore p{
+    color:#888;
+    line-height:1.8;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:55px 15px 45px;
+    text-align:center;
+    background:#030303;
+    border-top:1px solid #171717;
+}
+
+.footer-logo{
+    color:var(--gold2);
+    letter-spacing:4px;
+    font-size:21px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+footer p{
+    color:#666;
+    font-size:11px;
+    letter-spacing:1px;
+    line-height:2;
+}
+
+/* ================= EXPLORE PAGE ================= */
+
+.explore-page{
+    display:none;
+    min-height:100vh;
+    padding:125px 7% 80px;
+    background:
+    radial-gradient(circle at center,rgba(216,168,47,.07),transparent 40%),
+    #050505;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-heading small{
+    color:var(--gold2);
+    letter-spacing:4px;
+    font-size:12px;
+}
+
+.section-heading h2{
+    margin-top:15px;
+    font-size:45px;
+    letter-spacing:2px;
+}
+
+.section-heading p{
+    max-width:700px;
+    margin:18px auto;
+    color:#888;
+    line-height:1.8;
+}
+
+.services{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.service{
+    background:#0d0d0d;
+    border:1px solid #202020;
+    padding:30px;
+    min-height:250px;
+    transition:.3s;
+}
+
+.service:hover{
+    border-color:var(--gold);
+    transform:translateY(-4px);
+}
+
+.service-number{
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+.service h3{
+    margin:17px 0 12px;
+    font-size:20px;
+}
+
+.service p{
+    color:#888;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.service ul{
+    margin-top:12px;
+    padding-left:17px;
+    color:#777;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.explore-bottom{
+    text-align:center;
+    margin-top:55px;
+}
+
+/* ================= LOGIN ================= */
+
+.page{
+    display:none;
+    min-height:100vh;
+    padding:125px 6% 70px;
+    background:
+    radial-gradient(circle at center,rgba(216,168,47,.07),transparent 40%),
+    #050505;
+}
+
+.form-box{
+    width:100%;
+    max-width:450px;
+    margin:auto;
+    background:#0d0d0d;
+    border:1px solid #242424;
+    padding:40px;
+}
+
+.form-box h2{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.form-subtitle{
+    color:#777;
+    text-align:center;
+    font-size:13px;
+    margin-bottom:30px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+.input-group label{
+    display:block;
+    color:#aaa;
+    font-size:12px;
+    margin-bottom:7px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+    width:100%;
+    background:#050505;
+    border:1px solid #292929;
+    color:white;
+    padding:13px;
+    outline:none;
+}
+
+.input-group textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+    border-color:var(--gold);
+}
+
+.full{
+    width:100%;
+    margin-top:5px;
+}
+
+.switch{
+    text-align:center;
+    color:#777;
+    font-size:13px;
+    margin-top:20px;
+}
+
+.switch span{
+    color:var(--gold2);
+    cursor:pointer;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard-page{
+    display:none;
+    min-height:100vh;
+    padding:125px 6% 80px;
+    background:
+    radial-gradient(circle at center,rgba(216,168,47,.06),transparent 40%),
+    #050505;
+}
+
+.dashboard{
+    max-width:1100px;
+    margin:auto;
+}
+
+.dashboard-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:45px;
+}
+
+.dashboard-top small{
+    color:var(--gold2);
+    letter-spacing:3px;
+}
+
+.dashboard-top h1{
+    font-size:40px;
+    margin-top:10px;
+}
+
+.dashboard-top p{
+    color:#777;
+    margin-top:7px;
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.dashboard-card{
+    padding:30px;
+    background:#0d0d0d;
+    border:1px solid #242424;
+}
+
+.dashboard-card h3{
+    color:var(--gold2);
+    margin-bottom:13px;
+}
+
+.dashboard-card p{
+    color:#888;
+    font-size:14px;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.history{
+    margin-top:25px;
+    background:#0d0d0d;
+    border:1px solid #242424;
+    padding:30px;
+}
+
+.history h2{
+    margin-bottom:20px;
+}
+
+.history-item{
+    padding:15px 0;
+    border-bottom:1px solid #222;
+}
+
+.history-item strong{
+    color:var(--gold2);
+}
+
+.history-item p{
+    color:#777;
+    margin-top:5px;
+}
+
+/* ================= BOOK SERVICES ================= */
+
+.booking-section{
+    display:none;
+    min-height:100vh;
+    padding:125px 6% 80px;
+    background:
+    radial-gradient(circle at center,rgba(216,168,47,.06),transparent 40%),
+    #050505;
+}
+
+.booking-box{
+    max-width:850px;
+    margin:auto;
+    background:#0d0d0d;
+    border:1px solid #242424;
+    padding:40px;
+}
+
+.booking-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.booking-title small{
+    color:var(--gold2);
+    letter-spacing:4px;
+}
+
+.booking-title h2{
+    margin-top:12px;
+    font-size:38px;
+}
+
+.booking-title p{
+    color:#777;
+    margin-top:10px;
+}
+
+.booking-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.booking-full{
+    grid-column:1/-1;
+}
+
+/* ================= SUCCESS MESSAGE ================= */
+
+.success-message{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    border:1px solid var(--gold);
+    color:var(--gold2);
+    text-align:center;
+    font-size:13px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    .nav-links{
+        gap:12px;
+    }
+
+    .brand-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .booking-grid{
+        grid-template-columns:1fr;
+    }
+
+    .booking-full{
+        grid-column:auto;
+    }
+
+    .dashboard-top{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+
+@media(max-width:500px){
+
+    .navbar{
+        padding:0 4%;
+    }
+
+    .logo-name{
+        font-size:15px;
+    }
+
+    .nav-links{
+        gap:8px;
+    }
+
+    .nav-links a{
+        font-size:10px;
+    }
+
+    .login-nav{
+        padding:8px 12px !important;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .hero-subtitle{
+        font-size:13px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .hero-buttons .btn{
+        width:220px;
+    }
+
+    .brand-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .section-heading h2,
+    .home-explore h2{
+        font-size:34px;
+    }
+
+    .form-box,
+    .booking-box{
+        padding:25px;
+    }
+
+    .dashboard-top h1{
+        font-size:32px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo" onclick="goHome()">
+
+        <div class="logo-icon">A</div>
+
+        <div class="logo-name">
+            MOTOAURA
+        </div>
+
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="javascript:void(0)" onclick="goHome()">
+                HOME
+            </a>
+        </li>
+
+        <li>
+            <a href="javascript:void(0)" onclick="openExplore()">
+                EXPLORE
+            </a>
+        </li>
+
+        <li>
+            <a href="javascript:void(0)"
+               class="login-nav"
+               onclick="openLogin()">
+                LOGIN
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- ===================================================== -->
+<!-- ================= HOME PAGE ========================== -->
+<!-- ===================================================== -->
+
+<div id="homePage">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                MORE THAN A SERVICE CENTRE
+            </div>
+
+            <h1>
+                MOTO<span>AURA</span>
+            </h1>
+
+            <div class="hero-subtitle">
+                MULTI-BRAND TWO-WHEELER SERVICE CENTRE
+            </div>
+
+            <div class="hero-tagline">
+                GIVE YOUR RIDE AN AURA.
+            </div>
+
+            <div class="hero-buttons">
+
+                <!-- LOGIN -->
+
+                <a href="javascript:void(0)"
+                   onclick="openLogin()"
+                   class="btn btn-gold">
+                    LOGIN
+                </a>
+
+                <!-- EXPLORE #1 -->
+
+                <a href="javascript:void(0)"
+                   onclick="openExplore()"
+                   class="btn btn-outline">
+                    EXPLORE MOTOAURA
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BRANDS -->
+
+    <section class="brands">
+
+        <div class="brand-title">
+            SERVICE SUPPORT FOR MULTIPLE TWO-WHEELER BRANDS
+        </div>
+
+        <div class="brand-grid">
+
+            <div class="brand-box">HERO</div>
+
+            <div class="brand-box">HONDA</div>
+
+            <div class="brand-box">BAJAJ</div>
+
+            <div class="brand-box">TVS</div>
+
+            <div class="brand-box">YAMAHA</div>
+
+            <div class="brand-box">SUZUKI</div>
+
+            <div class="brand-box">ROYAL ENFIELD</div>
+
+            <div class="brand-box">& MORE</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPLORE #2 -->
+
+    <section class="home-explore">
+
+        <div class="home-explore-content">
+
+            <div class="hero-small">
+                EXPLORE MOTOAURA
+            </div>
+
+            <h2>
+                KNOW YOUR <span>SERVICE.</span>
+            </h2>
+
+            <p>
+                Explore MOTOAURA's multi-brand two-wheeler
+                servicing, repair, diagnostics, genuine parts,
+                detailing and maintenance support.
+            </p>
+
+            <button
+                class="btn btn-gold"
+                onclick="openExplore()">
+
+                EXPLORE
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            MOTOAURA
+        </div>
+
+        <p>
+            © 2026 MOTOAURA
+        </p>
+
+        <p>
+            RIDES CHANGE LIVES. WE KEEP THEM GOING.
+        </p>
+
+        <p>
+            JHARKHAND • INDIA
+        </p>
+
+    </footer>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- ================= EXPLORE PAGE ====================== -->
+<!-- ===================================================== -->
+
+<section id="explorePage" class="explore-page">
+
+    <div class="section-heading">
+
+        <small>
+            EXPLORE MOTOAURA
+        </small>
+
+        <h2>
+            KNOW YOUR <span style="color:#ffd45c;">SERVICE.</span>
+        </h2>
+
+        <p>
+            MOTOAURA is a multi-brand two-wheeler service centre
+            focused on professional servicing, repair,
+            diagnostics, detailing, genuine parts and
+            regular maintenance support.
+        </p>
+
+    </div>
+
+
+    <div class="services">
+
+
+        <!-- 01 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                01 / SERVICE
+            </div>
+
+            <h3>
+                General Service
+            </h3>
+
+            <p>
+                Complete periodic servicing designed to
+                maintain smooth performance and reliability.
+            </p>
+
+            <ul>
+                <li>Engine oil inspection</li>
+                <li>Brake inspection</li>
+                <li>Chain inspection</li>
+                <li>Basic maintenance</li>
+            </ul>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                02 / REPAIR
+            </div>
+
+            <h3>
+                Repair & Maintenance
+            </h3>
+
+            <p>
+                Professional support for common mechanical
+                and maintenance requirements.
+            </p>
+
+            <ul>
+                <li>Mechanical repairs</li>
+                <li>Brake work</li>
+                <li>Clutch & cable work</li>
+                <li>Routine adjustments</li>
+            </ul>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                03 / DIAGNOSTICS
+            </div>
+
+            <h3>
+                Bike Diagnostics
+            </h3>
+
+            <p>
+                Systematic inspection to identify possible
+                problems with your motorcycle.
+            </p>
+
+            <ul>
+                <li>Performance checks</li>
+                <li>Electrical inspection</li>
+                <li>Fault identification</li>
+                <li>Vehicle inspection</li>
+            </ul>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                04 / PARTS
+            </div>
+
+            <h3>
+                Genuine Parts
+            </h3>
+
+            <p>
+                Replacement and consumable support based
+                on your vehicle's service requirement.
+            </p>
+
+            <ul>
+                <li>Replacement components</li>
+                <li>Service parts</li>
+                <li>Consumables</li>
+                <li>Quality-focused sourcing</li>
+            </ul>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                05 / DETAILING
+            </div>
+
+            <h3>
+                Bike Detailing
+            </h3>
+
+            <p>
+                Cleaning and appearance care to keep your
+                two-wheeler looking maintained.
+            </p>
+
+            <ul>
+                <li>Bike cleaning</li>
+                <li>Surface care</li>
+                <li>Polishing</li>
+                <li>Visual detailing</li>
+            </ul>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                06 / SUPPORT
+            </div>
+
+            <h3>
+                AMC & Support
+            </h3>
+
+            <p>
+                Regular maintenance support for customers
+                who want consistent bike care.
+            </p>
+
+            <ul>
+                <li>Periodic servicing</li>
+                <li>Maintenance planning</li>
+                <li>Service reminders</li>
+                <li>Customer support</li>
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="explore-bottom">
+
+        <button
+            class="btn btn-outline"
+            onclick="goHome()">
+
+            ← BACK TO HOME
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- ================= LOGIN PAGE ========================= -->
+<!-- ===================================================== -->
+
+<section id="loginPage" class="page">
+
+    <div class="form-box">
+
+        <h2>
+            MOTOAURA LOGIN
+        </h2>
+
+        <div class="form-subtitle">
+            Access your customer dashboard
+        </div>
+
+
+        <form onsubmit="login(event)">
+
+            <div class="input-group">
+
+                <label>
+                    MOBILE NUMBER / EMAIL
+                </label>
+
+                <input
+                    type="text"
+                    id="loginId"
+                    placeholder="Enter anything"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    PASSWORD
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter anything"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn btn-gold full">
+
+                LOGIN
+
+            </button>
+
+        </form>
+
+
+        <div class="switch">
+
+            Don't have an account?
+
+            <span onclick="openRegister()">
+                CREATE ACCOUNT
+            </span>
+
+        </div>
+
+
+        <div class="switch">
+
+            <span onclick="goHome()">
+                ← BACK TO HOME
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- ================= REGISTER PAGE ====================== -->
+<!-- ===================================================== -->
+
+<section id="registerPage" class="page">
+
+    <div class="form-box">
+
+        <h2>
+            CREATE ACCOUNT
+        </h2>
+
+        <div class="form-subtitle">
+            Join MOTOAURA
+        </div>
+
+
+        <form onsubmit="register(event)">
+
+            <div class="input-group">
+
+                <label>
+                    FULL NAME
+                </label>
+
+                <input
+                    type="text"
+                    id="regName"
+                    placeholder="Enter full name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    MOBILE NUMBER
+                </label>
+
+                <input
+                    type="tel"
+                    id="regMobile"
+                    placeholder="Enter mobile number"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    EMAIL
+                </label>
+
+                <input
+                    type="email"
+                    id="regEmail"
+                    placeholder="Enter email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    BIKE BRAND
+                </label>
+
+                <select id="regBike">
+
+                    <option value="">
+                        Select Bike Brand
+                    </option>
+
+                    <option>Hero</option>
+                    <option>Honda</option>
+                    <option>Bajaj</option>
+                    <option>TVS</option>
+                    <option>Yamaha</option>
+                    <option>Suzuki</option>
+                    <option>Royal Enfield</option>
+                    <option>Other</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    PASSWORD
+                </label>
+
+                <input
+                    type="password"
+                    id="regPassword"
+                    placeholder="Create password"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn btn-gold full">
+
+                CREATE ACCOUNT
+
+            </button>
+
+        </form>
+
+
+        <div class="switch">
+
+            Already have an account?
+
+            <span onclick="openLogin()">
+                LOGIN
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- ================= CUSTOMER DASHBOARD ================= -->
+<!-- ===================================================== -->
+
+<section id="dashboardPage" class="dashboard-page">
+
+    <div class="dashboard">
+
+
+        <div class="dashboard-top">
+
+            <div>
+
+                <small>
+                    CUSTOMER DASHBOARD
+                </small>
+
+                <h1>
+                    Welcome, <span id="dashboardName">Customer</span>
+                </h1>
+
+                <p>
+                    Manage your MOTOAURA service experience.
+                </p>
+
+            </div>
+
+
+            <button
+                class="btn btn-outline"
+                onclick="logout()">
+
+                LOGOUT
+
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-grid">
+
+
+            <!-- BOOK SERVICE -->
+
+            <div class="dashboard-card">
+
+                <h3>
+                    BOOK SERVICES
+                </h3>
+
+                <p>
+                    Schedule your bike service,
+                    repair or maintenance with MOTOAURA.
+                </p>
+
+                <button
+                    class="btn btn-gold"
+                    onclick="openBooking()">
+
+                    BOOK SERVICE
+
+                </button>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div class="dashboard-card">
+
+                <h3>
+                    MY PROFILE
+                </h3>
+
+                <p>
+                    Customer Name:
+                    <strong id="profileName">
+                        Customer
+                    </strong>
+                    <br><br>
+
+                    Bike:
+                    <strong id="profileBike">
+                        Not added
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <!-- SUPPORT -->
+
+            <div class="dashboard-card">
+
+                <h3>
+                    MOTOAURA SUPPORT
+                </h3>
+
+                <p>
+                    Need help with your bike service?
+                    Contact MOTOAURA for assistance.
+                </p>
+
+                <button
+                    class="btn btn-outline"
+                    onclick="alert('MOTOAURA Support: +91 98765 43210')">
+
+                    CONTACT SUPPORT
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- SERVICE HISTORY -->
+
+        <div class="history">
+
+            <h2>
+                SERVICE HISTORY
+            </h2>
+
+            <div id="historyList">
+
+                <div class="history-item">
+
+                    <strong>
+                        No service booked yet
+                    </strong>
+
+                    <p>
+                        Your MOTOAURA service bookings
+                        will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- ================= BOOK SERVICE ====================== -->
+<!-- ===================================================== -->
+
+<section id="bookingPage" class="booking-section">
+
+    <div class="booking-box">
+
+
+        <div class="booking-title">
+
+            <small>
+                MOTOAURA
+            </small>
+
+            <h2>
+                BOOK YOUR SERVICE
+            </h2>
+
+            <p>
+                Tell us about your bike and service requirement.
+            </p>
+
+        </div>
+
+
+        <form onsubmit="bookService(event)">
+
+            <div class="booking-grid">
+
+
+                <div class="input-group">
+
+                    <label>
+                        CUSTOMER NAME
+                    </label>
+
+                    <input
+                        type="text"
+                        id="bookingName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        MOBILE NUMBER
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="bookingPhone"
+                        placeholder="Enter mobile number"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        BIKE BRAND
+                    </label>
+
+                    <select id="bookingBike" required>
+
+                        <option value="">
+                            Select Bike Brand
+                        </option>
+
+                        <option>Hero</option>
+                        <option>Honda</option>
+                        <option>Bajaj</option>
+                        <option>TVS</option>
+                        <option>Yamaha</option>
+                        <option>Suzuki</option>
+                        <option>Royal Enfield</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        SERVICE TYPE
+                    </label>
+
+                    <select id="bookingService" required>
+
+                        <option value="">
+                            Select Service
+                        </option>
+
+                        <option>
+                            General Service
+                        </option>
+
+                        <option>
+                            Repair & Maintenance
+                        </option>
+
+                        <option>
+                            Bike Diagnostics
+                        </option>
+
+                        <option>
+                            Genuine Parts
+                        </option>
+
+                        <option>
+                            Bike Detailing
+                        </option>
+
+                        <option>
+                            AMC & Support
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        PREFERRED DATE
+                    </label>
+
+                    <input
+                        type="date"
+                        id="bookingDate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        PREFERRED TIME
+                    </label>
+
+                    <input
+                        type="time"
+                        id="bookingTime"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group booking-full">
+
+                    <label>
+                        ADDITIONAL MESSAGE
+                    </label>
+
+                    <textarea
+                        id="bookingMessage"
+                        placeholder="Tell us about your bike problem or requirement">
+                    </textarea>
+
+                </div>
+
+
+                <div class="booking-full">
+
+                    <button
+                        type="submit"
+                        class="btn btn-gold full">
+
+                        CONFIRM BOOKING
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </form>
+
+
+        <div
+            id="bookingSuccess"
+            class="success-message">
+
+            ✓ Your service request has been submitted
+            successfully to MOTOAURA.
+
+        </div>
+
+
+        <div style="text-align:center;margin-top:20px;">
+
+            <button
+                class="btn btn-outline"
+                onclick="openDashboard()">
+
+                ← BACK TO DASHBOARD
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =====================================================
+   PAGE CONTROL
+===================================================== */
+
+function hideAll(){
+
+    document.getElementById("homePage").style.display = "none";
+
+    document.getElementById("explorePage").style.display = "none";
+
+    document.getElementById("loginPage").style.display = "none";
+
+    document.getElementById("registerPage").style.display = "none";
+
+    document.getElementById("dashboardPage").style.display = "none";
+
+    document.getElementById("bookingPage").style.display = "none";
+}
+
+
+/* ================= HOME ================= */
+
+function goHome(){
+
+    hideAll();
+
+    document.getElementById("homePage").style.display = "block";
+
+    window.scrollTo(0,0);
+}
+
+
+/* ================= EXPLORE ================= */
+
+function openExplore(){
+
+    hideAll();
+
+    document.getElementById("explorePage").style.display = "block";
+
+    window.scrollTo(0,0);
+}
+
+
+/* ================= LOGIN ================= */
+
+function openLogin(){
+
+    hideAll();
+
+    document.getElementById("loginPage").style.display = "block";
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* ================= REGISTER ================= */
+
+function openRegister(){
+
+    hideAll();
+
+    document.getElementById("registerPage").style.display = "block";
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   LOGIN
+   IMPORTANT:
+   KISI BHI TEXT SE LOGIN HO JAYEGA
+===================================================== */
+
+function login(event){
+
+    event.preventDefault();
+
+    const loginId =
+        document.getElementById("loginId").value.trim();
+
+    const password =
+        document.getElementById("loginPassword").value.trim();
+
+
+    /*
+
+       Yahan koi real password checking nahi hai.
+
+       User kuch bhi likhe:
+       example:
+       abc
+       123
+       parul
+       test
+
+       dono fields filled hone par dashboard open.
+
+    */
+
+    if(loginId !== "" && password !== ""){
+
+        let savedUser =
+            JSON.parse(localStorage.getItem("motoauraUser"));
+
+        if(savedUser){
+
+            document.getElementById("dashboardName").innerText =
+                savedUser.name;
+
+            document.getElementById("profileName").innerText =
+                savedUser.name;
+
+            document.getElementById("profileBike").innerText =
+                savedUser.bike || "Not added";
+
+            document.getElementById("bookingName").value =
+                savedUser.name;
+
+        }else{
+
+            document.getElementById("dashboardName").innerText =
+                loginId;
+
+            document.getElementById("profileName").innerText =
+                loginId;
+
+            document.getElementById("profileBike").innerText =
+                "Not added";
+
+            document.getElementById("bookingName").value =
+                loginId;
+
+        }
+
+
+        openDashboard();
+
+    }
+
+}
+
+
+/* ================= DASHBOARD ================= */
+
+function openDashboard(){
+
+    hideAll();
+
+    document.getElementById("dashboardPage").style.display = "block";
+
+    loadHistory();
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* ================= REGISTER ================= */
+
+function register(event){
+
+    event.preventDefault();
+
+
+    const user = {
+
+        name:
+        document.getElementById("regName").value,
+
+        mobile:
+        document.getElementById("regMobile").value,
+
+        email:
+        document.getElementById("regEmail").value,
+
+        bike:
+        document.getElementById("regBike").value,
+
+        password:
+        document.getElementById("regPassword").value
+
+    };
+
+
+    localStorage.setItem(
+        "motoauraUser",
+        JSON.stringify(user)
+    );
+
+
+    alert(
+        "Account created successfully! Now login to continue."
+    );
+
+
+    openLogin();
+
+}
+
+
+/* =====================================================
+   BOOKING
+===================================================== */
+
+function openBooking(){
+
+    hideAll();
+
+    document.getElementById("bookingPage").style.display = "block";
+
+    let savedUser =
+        JSON.parse(localStorage.getItem("motoauraUser"));
+
+    if(savedUser){
+
+        document.getElementById("bookingName").value =
+            savedUser.name;
+
+    }
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* ================= SAVE BOOKING ================= */
+
+function bookService(event){
+
+    event.preventDefault();
+
+
+    const booking = {
+
+        name:
+        document.getElementById("bookingName").value,
+
+        phone:
+        document.getElementById("bookingPhone").value,
+
+        bike:
+        document.getElementById("bookingBike").value,
+
+        service:
+        document.getElementById("bookingService").value,
+
+        date:
+        document.getElementById("bookingDate").value,
+
+        time:
+        document.getElementById("bookingTime").value,
+
+        message:
+        document.getElementById("bookingMessage").value
+
+    };
+
+
+    let bookings =
+        JSON.parse(
+            localStorage.getItem("motoauraBookings")
+        ) || [];
+
+
+    bookings.push(booking);
+
+
+    localStorage.setItem(
+        "motoauraBookings",
+        JSON.stringify(bookings)
+    );
+
+
+    document.getElementById("bookingSuccess").style.display =
+        "block";
+
+
+    setTimeout(function(){
+
+        openDashboard();
+
+    },1500);
+
+}
+
+
+/* ================= HISTORY ================= */
+
+function loadHistory(){
+
+    const historyList =
+        document.getElementById("historyList");
+
+
+    let bookings =
+        JSON.parse(
+            localStorage.getItem("motoauraBookings")
+        ) || [];
+
+
+    if(bookings.length === 0){
+
+        historyList.innerHTML = `
+
+            <div class="history-item">
+
+                <strong>
+                    No service booked yet
+                </strong>
+
+                <p>
+                    Your MOTOAURA service bookings
+                    will appear here.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    historyList.innerHTML = "";
+
+
+    bookings.forEach(function(item,index){
+
+        historyList.innerHTML += `
+
+            <div class="history-item">
+
+                <strong>
+                    ${item.service}
+                </strong>
+
+                <p>
+                    Bike: ${item.bike}
+                    <br>
+                    Date: ${item.date}
+                    <br>
+                    Time: ${item.time}
+                    <br>
+                    Status: Booking Received
+                </p>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* ================= LOGOUT ================= */
+
+function logout(){
+
+    alert("You have been logged out.");
+
+    goHome();
+
+}
+
+
+/* ================= START ================= */
+
+goHome();
+
+</script>
+
+</body>
+</html>
